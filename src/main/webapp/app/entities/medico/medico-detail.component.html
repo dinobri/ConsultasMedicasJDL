@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medico">
+            <h2><span>Medico</span> {{medico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{medico.nome}}</span>
+                </dd>
+                <dt><span>Numero Documento</span></dt>
+                <dd>
+                    <span>{{medico.numeroDocumento}}</span>
+                </dd>
+                <dt><span>Data Nascimento</span></dt>
+                <dd>
+                    <span>{{medico.dataNascimento}}</span>
+                </dd>
+                <dt><span>Numero CRM</span></dt>
+                <dd>
+                    <span>{{medico.numeroCRM}}</span>
+                </dd>
+                <dt><span>Especialidade</span></dt>
+                <dd>
+                    <span *ngFor="let especialidade of medico.especialidades; let last = last">
+                        <a [routerLink]="['/especialidade', especialidade?.id, 'view' ]">{{especialidade.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medico', medico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

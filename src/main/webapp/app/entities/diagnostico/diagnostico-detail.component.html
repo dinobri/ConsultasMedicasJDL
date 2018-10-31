@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diagnostico">
+            <h2><span>Diagnostico</span> {{diagnostico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Doenca</span></dt>
+                <dd>
+                    <div *ngIf="diagnostico.doenca">
+                        <a [routerLink]="['/doenca', diagnostico.doenca?.id, 'view']">{{diagnostico.doenca?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Consulta</span></dt>
+                <dd>
+                    <div *ngIf="diagnostico.consulta">
+                        <a [routerLink]="['/consulta', diagnostico.consulta?.id, 'view']">{{diagnostico.consulta?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Paciente</span></dt>
+                <dd>
+                    <div *ngIf="diagnostico.paciente">
+                        <a [routerLink]="['/paciente', diagnostico.paciente?.id, 'view']">{{diagnostico.paciente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/diagnostico', diagnostico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

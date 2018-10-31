@@ -1,0 +1,52 @@
+{
+    "name": "AgendamentoConsulta",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "horaInicio",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "horaFim",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isHoraMarcada",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agendamentoConsulta"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181031033427",
+    "entityTableName": "agendamento_consulta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

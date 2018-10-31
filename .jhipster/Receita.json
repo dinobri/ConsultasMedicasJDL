@@ -1,0 +1,33 @@
+{
+    "name": "Receita",
+    "fields": [
+        {
+            "fieldName": "observacoes",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "receita"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "posologia",
+            "otherEntityName": "posologia",
+            "otherEntityRelationshipName": "receita"
+        }
+    ],
+    "changelogDate": "20181031033429",
+    "entityTableName": "receita",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

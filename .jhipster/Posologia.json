@@ -1,0 +1,44 @@
+{
+    "name": "Posologia",
+    "fields": [
+        {
+            "fieldName": "periodo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "duracao",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "quantidade",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "remedio",
+            "otherEntityName": "remedio",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "receita",
+            "otherEntityName": "receita",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181031033431",
+    "entityTableName": "posologia",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

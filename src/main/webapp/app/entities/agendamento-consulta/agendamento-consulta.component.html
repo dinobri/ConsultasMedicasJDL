@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span>Agendamento Consultas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-agendamento-consulta" [routerLink]="['/agendamento-consulta/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Agendamento Consulta
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="agendamentoConsultas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Data</span></th>
+            <th><span>Hora Inicio</span></th>
+            <th><span>Hora Fim</span></th>
+            <th><span>Is Hora Marcada</span></th>
+            <th><span>Consulta</span></th>
+            <th><span>Paciente</span></th>
+            <th><span>Medico</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let agendamentoConsulta of agendamentoConsultas ;trackBy: trackId">
+                <td><a [routerLink]="['/agendamento-consulta', agendamentoConsulta.id, 'view' ]">{{agendamentoConsulta.id}}</a></td>
+                <td>{{agendamentoConsulta.data | date:'mediumDate'}}</td>
+                <td>{{agendamentoConsulta.horaInicio}}</td>
+                <td>{{agendamentoConsulta.horaFim}}</td>
+                <td>{{agendamentoConsulta.isHoraMarcada}}</td>
+                <td>
+                    <div *ngIf="agendamentoConsulta.consulta">
+                        <a [routerLink]="['../consulta', agendamentoConsulta.consulta?.id, 'view' ]" >{{agendamentoConsulta.consulta?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agendamentoConsulta.paciente">
+                        <a [routerLink]="['../paciente', agendamentoConsulta.paciente?.id, 'view' ]" >{{agendamentoConsulta.paciente?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agendamentoConsulta.medico">
+                        <a [routerLink]="['../medico', agendamentoConsulta.medico?.id, 'view' ]" >{{agendamentoConsulta.medico?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/agendamento-consulta', agendamentoConsulta.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/agendamento-consulta', agendamentoConsulta.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'agendamento-consulta/'+ agendamentoConsulta.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

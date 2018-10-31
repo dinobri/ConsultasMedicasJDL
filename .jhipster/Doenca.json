@@ -1,0 +1,46 @@
+{
+    "name": "Doenca",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoDoenca",
+            "fieldValues": "CONGENITA,BACTERIANA,VIRAL,TRAUMA"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "doenca",
+            "relationshipName": "sintoma",
+            "otherEntityName": "sintoma",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "otherEntityRelationshipName": "doenca"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "doenca"
+        }
+    ],
+    "changelogDate": "20181031033433",
+    "entityTableName": "doenca",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

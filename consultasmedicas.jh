@@ -1,0 +1,97 @@
+entity Especialidade{
+	nome String
+}
+
+entity Medico{
+	nome String,
+    numeroDocumento String,
+    dataNascimento LocalDate,
+    numeroCRM String
+}
+
+entity Paciente{
+	nome String,
+    numeroDocumento String,
+    dataNascimento LocalDate,
+    altura Double,
+    peso Double,
+    amf String,
+    amp String
+}
+
+entity Consulta{
+	dataHora LocalDate
+}
+
+entity AgendamentoConsulta{
+	data LocalDate,
+    horaInicio Integer,
+    horaFim Integer
+    isHoraMarcada Boolean
+}
+
+entity Consultorio{
+	numero Integer
+}
+
+entity Receita{
+	observacoes String
+}
+
+entity Remedio{
+	nome String,
+    principoAtivo String,
+    concentracao Double
+}
+
+entity Posologia{
+	periodo Integer,
+    duracao Integer,
+    quantidade Integer,
+    observacao String
+}
+
+entity Diagnostico{
+
+}
+
+entity Doenca{
+	nome String,
+	tipo TipoDoenca
+}
+
+entity Sintoma{
+	nome String
+}
+
+enum TipoDoenca {
+  CONGENITA, BACTERIANA, VIRAL, TRAUMA
+}
+
+relationship OneToOne {
+	Consulta to Receita,
+    AgendamentoConsulta to Consulta
+}
+
+relationship OneToMany{
+    Consulta to Diagnostico,
+    Paciente to Diagnostico
+}
+
+relationship ManyToOne{
+	Consulta to Consultorio,
+    AgendamentoConsulta to Paciente,
+    AgendamentoConsulta to Medico,
+    Consulta to Paciente,
+    Consulta to Medico,
+    Diagnostico to Doenca,
+    Posologia to Remedio,
+    Posologia to Receita
+}
+
+relationship ManyToMany {
+	Medico to Especialidade,
+    Paciente to Doenca,
+    Doenca to Sintoma
+}
+

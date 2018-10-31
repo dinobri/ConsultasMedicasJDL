@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-agendamento-consulta-heading">Create or edit a Agendamento Consulta</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!agendamentoConsulta.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="agendamentoConsulta.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" [(ngModel)]="agendamentoConsulta.data"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horaInicio">Hora Inicio</label>
+                    <input type="number" class="form-control" name="horaInicio" id="field_horaInicio"
+                        [(ngModel)]="agendamentoConsulta.horaInicio" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horaFim">Hora Fim</label>
+                    <input type="number" class="form-control" name="horaFim" id="field_horaFim"
+                        [(ngModel)]="agendamentoConsulta.horaFim" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isHoraMarcada">Is Hora Marcada</label>
+                    <input type="checkbox" class="form-control" name="isHoraMarcada" id="field_isHoraMarcada"
+                        [(ngModel)]="agendamentoConsulta.isHoraMarcada" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_consulta">Consulta</label>
+                    <select class="form-control" id="field_consulta" name="consulta" [(ngModel)]="agendamentoConsulta.consulta">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="consultaOption.id === agendamentoConsulta.consulta?.id ? agendamentoConsulta.consulta : consultaOption" *ngFor="let consultaOption of consultas; trackBy: trackConsultaById">{{consultaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paciente">Paciente</label>
+                    <select class="form-control" id="field_paciente" name="paciente" [(ngModel)]="agendamentoConsulta.paciente" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pacienteOption.id === agendamentoConsulta.paciente?.id ? agendamentoConsulta.paciente : pacienteOption" *ngFor="let pacienteOption of pacientes; trackBy: trackPacienteById">{{pacienteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_medico">Medico</label>
+                    <select class="form-control" id="field_medico" name="medico" [(ngModel)]="agendamentoConsulta.medico" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medicoOption.id === agendamentoConsulta.medico?.id ? agendamentoConsulta.medico : medicoOption" *ngFor="let medicoOption of medicos; trackBy: trackMedicoById">{{medicoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

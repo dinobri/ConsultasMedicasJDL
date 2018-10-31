@@ -1,0 +1,27 @@
+{
+    "name": "Especialidade",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "especialidade"
+        }
+    ],
+    "changelogDate": "20181031033423",
+    "entityTableName": "especialidade",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

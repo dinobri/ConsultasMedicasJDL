@@ -1,0 +1,58 @@
+<div>
+    <h2 id="page-heading">
+        <span>Remedios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-remedio" [routerLink]="['/remedio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Remedio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="remedios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Nome</span></th>
+            <th><span>Principo Ativo</span></th>
+            <th><span>Concentracao</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let remedio of remedios ;trackBy: trackId">
+                <td><a [routerLink]="['/remedio', remedio.id, 'view' ]">{{remedio.id}}</a></td>
+                <td>{{remedio.nome}}</td>
+                <td>{{remedio.principoAtivo}}</td>
+                <td>{{remedio.concentracao}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/remedio', remedio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/remedio', remedio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'remedio/'+ remedio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

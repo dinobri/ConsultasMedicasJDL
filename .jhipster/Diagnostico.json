@@ -1,0 +1,33 @@
+{
+    "name": "Diagnostico",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "doenca",
+            "otherEntityName": "doenca",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181031033432",
+    "entityTableName": "diagnostico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agendamentoConsulta">
+            <h2><span>Agendamento Consulta</span> {{agendamentoConsulta.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Data</span></dt>
+                <dd>
+                    <span>{{agendamentoConsulta.data}}</span>
+                </dd>
+                <dt><span>Hora Inicio</span></dt>
+                <dd>
+                    <span>{{agendamentoConsulta.horaInicio}}</span>
+                </dd>
+                <dt><span>Hora Fim</span></dt>
+                <dd>
+                    <span>{{agendamentoConsulta.horaFim}}</span>
+                </dd>
+                <dt><span>Is Hora Marcada</span></dt>
+                <dd>
+                    <span>{{agendamentoConsulta.isHoraMarcada}}</span>
+                </dd>
+                <dt><span>Consulta</span></dt>
+                <dd>
+                    <div *ngIf="agendamentoConsulta.consulta">
+                        <a [routerLink]="['/consulta', agendamentoConsulta.consulta?.id, 'view']">{{agendamentoConsulta.consulta?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Paciente</span></dt>
+                <dd>
+                    <div *ngIf="agendamentoConsulta.paciente">
+                        <a [routerLink]="['/paciente', agendamentoConsulta.paciente?.id, 'view']">{{agendamentoConsulta.paciente?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Medico</span></dt>
+                <dd>
+                    <div *ngIf="agendamentoConsulta.medico">
+                        <a [routerLink]="['/medico', agendamentoConsulta.medico?.id, 'view']">{{agendamentoConsulta.medico?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agendamento-consulta', agendamentoConsulta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

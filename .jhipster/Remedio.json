@@ -1,0 +1,34 @@
+{
+    "name": "Remedio",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "principoAtivo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "concentracao",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "posologia",
+            "otherEntityName": "posologia",
+            "otherEntityRelationshipName": "remedio"
+        }
+    ],
+    "changelogDate": "20181031033430",
+    "entityTableName": "remedio",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

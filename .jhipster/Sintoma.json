@@ -1,0 +1,27 @@
+{
+    "name": "Sintoma",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "doenca",
+            "otherEntityName": "doenca",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "sintoma"
+        }
+    ],
+    "changelogDate": "20181031033434",
+    "entityTableName": "sintoma",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

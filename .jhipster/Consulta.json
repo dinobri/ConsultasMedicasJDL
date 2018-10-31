@@ -1,0 +1,59 @@
+{
+    "name": "Consulta",
+    "fields": [
+        {
+            "fieldName": "dataHora",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "receita",
+            "otherEntityName": "receita",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "consulta"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "otherEntityRelationshipName": "consulta"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "consultorio",
+            "otherEntityName": "consultorio",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "agendamentoConsulta",
+            "otherEntityName": "agendamentoConsulta",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "consulta"
+        }
+    ],
+    "changelogDate": "20181031033426",
+    "entityTableName": "consulta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

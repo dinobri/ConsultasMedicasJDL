@@ -1,0 +1,26 @@
+{
+    "name": "Consultorio",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "consultorio"
+        }
+    ],
+    "changelogDate": "20181031033428",
+    "entityTableName": "consultorio",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

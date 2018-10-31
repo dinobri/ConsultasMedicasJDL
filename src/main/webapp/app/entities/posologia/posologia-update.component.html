@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-posologia-heading">Create or edit a Posologia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!posologia.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="posologia.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_periodo">Periodo</label>
+                    <input type="number" class="form-control" name="periodo" id="field_periodo"
+                        [(ngModel)]="posologia.periodo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_duracao">Duracao</label>
+                    <input type="number" class="form-control" name="duracao" id="field_duracao"
+                        [(ngModel)]="posologia.duracao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantidade">Quantidade</label>
+                    <input type="number" class="form-control" name="quantidade" id="field_quantidade"
+                        [(ngModel)]="posologia.quantidade" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_observacao">Observacao</label>
+                    <input type="text" class="form-control" name="observacao" id="field_observacao"
+                        [(ngModel)]="posologia.observacao" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_remedio">Remedio</label>
+                    <select class="form-control" id="field_remedio" name="remedio" [(ngModel)]="posologia.remedio" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="remedioOption.id === posologia.remedio?.id ? posologia.remedio : remedioOption" *ngFor="let remedioOption of remedios; trackBy: trackRemedioById">{{remedioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_receita">Receita</label>
+                    <select class="form-control" id="field_receita" name="receita" [(ngModel)]="posologia.receita" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="receitaOption.id === posologia.receita?.id ? posologia.receita : receitaOption" *ngFor="let receitaOption of receitas; trackBy: trackReceitaById">{{receitaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

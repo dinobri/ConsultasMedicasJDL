@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="posologia">
+            <h2><span>Posologia</span> {{posologia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Periodo</span></dt>
+                <dd>
+                    <span>{{posologia.periodo}}</span>
+                </dd>
+                <dt><span>Duracao</span></dt>
+                <dd>
+                    <span>{{posologia.duracao}}</span>
+                </dd>
+                <dt><span>Quantidade</span></dt>
+                <dd>
+                    <span>{{posologia.quantidade}}</span>
+                </dd>
+                <dt><span>Observacao</span></dt>
+                <dd>
+                    <span>{{posologia.observacao}}</span>
+                </dd>
+                <dt><span>Remedio</span></dt>
+                <dd>
+                    <div *ngIf="posologia.remedio">
+                        <a [routerLink]="['/remedio', posologia.remedio?.id, 'view']">{{posologia.remedio?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Receita</span></dt>
+                <dd>
+                    <div *ngIf="posologia.receita">
+                        <a [routerLink]="['/receita', posologia.receita?.id, 'view']">{{posologia.receita?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/posologia', posologia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

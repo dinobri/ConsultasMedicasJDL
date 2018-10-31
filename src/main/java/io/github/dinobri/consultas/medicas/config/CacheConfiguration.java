@@ -38,6 +38,34 @@ public class CacheConfiguration {
             cm.createCache(io.github.dinobri.consultas.medicas.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.dinobri.consultas.medicas.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.dinobri.consultas.medicas.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Especialidade.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Especialidade.class.getName() + ".medicos", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Medico.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Medico.class.getName() + ".especialidades", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Medico.class.getName() + ".agendamentoConsultas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Medico.class.getName() + ".consultas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Paciente.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Paciente.class.getName() + ".diagnosticos", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Paciente.class.getName() + ".doencas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Paciente.class.getName() + ".agendamentoConsultas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Paciente.class.getName() + ".consultas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Consulta.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Consulta.class.getName() + ".diagnosticos", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.AgendamentoConsulta.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Consultorio.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Consultorio.class.getName() + ".consultas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Receita.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Receita.class.getName() + ".posologias", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Remedio.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Remedio.class.getName() + ".posologias", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Posologia.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Diagnostico.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Doenca.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Doenca.class.getName() + ".sintomas", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Doenca.class.getName() + ".diagnosticos", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Doenca.class.getName() + ".pacientes", jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Sintoma.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.dinobri.consultas.medicas.domain.Sintoma.class.getName() + ".doencas", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

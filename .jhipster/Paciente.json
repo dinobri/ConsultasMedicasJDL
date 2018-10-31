@@ -1,0 +1,70 @@
+{
+    "name": "Paciente",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroDocumento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "altura",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "peso",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "amf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amp",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "diagnostico",
+            "otherEntityName": "diagnostico",
+            "otherEntityRelationshipName": "paciente"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "paciente",
+            "relationshipName": "doenca",
+            "otherEntityName": "doenca",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "agendamentoConsulta",
+            "otherEntityName": "agendamentoConsulta",
+            "otherEntityRelationshipName": "paciente"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "paciente"
+        }
+    ],
+    "changelogDate": "20181031033425",
+    "entityTableName": "paciente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

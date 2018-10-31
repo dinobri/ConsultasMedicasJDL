@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span>Posologias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-posologia" [routerLink]="['/posologia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Posologia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="posologias">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Periodo</span></th>
+            <th><span>Duracao</span></th>
+            <th><span>Quantidade</span></th>
+            <th><span>Observacao</span></th>
+            <th><span>Remedio</span></th>
+            <th><span>Receita</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let posologia of posologias ;trackBy: trackId">
+                <td><a [routerLink]="['/posologia', posologia.id, 'view' ]">{{posologia.id}}</a></td>
+                <td>{{posologia.periodo}}</td>
+                <td>{{posologia.duracao}}</td>
+                <td>{{posologia.quantidade}}</td>
+                <td>{{posologia.observacao}}</td>
+                <td>
+                    <div *ngIf="posologia.remedio">
+                        <a [routerLink]="['../remedio', posologia.remedio?.id, 'view' ]" >{{posologia.remedio?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="posologia.receita">
+                        <a [routerLink]="['../receita', posologia.receita?.id, 'view' ]" >{{posologia.receita?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/posologia', posologia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/posologia', posologia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'posologia/'+ posologia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

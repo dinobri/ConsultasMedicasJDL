@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-paciente-heading">Create or edit a Paciente</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!paciente.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="paciente.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="paciente.nome" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numeroDocumento">Numero Documento</label>
+                    <input type="text" class="form-control" name="numeroDocumento" id="field_numeroDocumento"
+                        [(ngModel)]="paciente.numeroDocumento" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataNascimento">Data Nascimento</label>
+                    <div class="input-group">
+                        <input id="field_dataNascimento" type="text" class="form-control" name="dataNascimento" ngbDatepicker  #dataNascimentoDp="ngbDatepicker" [(ngModel)]="paciente.dataNascimento"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataNascimentoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_altura">Altura</label>
+                    <input type="number" class="form-control" name="altura" id="field_altura"
+                        [(ngModel)]="paciente.altura" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_peso">Peso</label>
+                    <input type="number" class="form-control" name="peso" id="field_peso"
+                        [(ngModel)]="paciente.peso" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amf">Amf</label>
+                    <input type="text" class="form-control" name="amf" id="field_amf"
+                        [(ngModel)]="paciente.amf" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amp">Amp</label>
+                    <input type="text" class="form-control" name="amp" id="field_amp"
+                        [(ngModel)]="paciente.amp" />
+                </div>
+
+                <div class="form-group">
+                    <label for="field_doenca">Doenca</label>
+                    <select class="form-control" id="field_doenca" multiple name="doenca" [(ngModel)]="paciente.doencas">
+                        <option [ngValue]="getSelected(paciente.doencas, doencaOption)" *ngFor="let doencaOption of doencas; trackBy: trackDoencaById">{{doencaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

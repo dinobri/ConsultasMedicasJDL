@@ -1,0 +1,52 @@
+{
+    "name": "Medico",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroDocumento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroCRM",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "medico",
+            "relationshipName": "especialidade",
+            "otherEntityName": "especialidade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "agendamentoConsulta",
+            "otherEntityName": "agendamentoConsulta",
+            "otherEntityRelationshipName": "medico"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consulta",
+            "otherEntityName": "consulta",
+            "otherEntityRelationshipName": "medico"
+        }
+    ],
+    "changelogDate": "20181031033424",
+    "entityTableName": "medico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
